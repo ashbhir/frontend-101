@@ -34,6 +34,7 @@
 - [How JS Works](https://blog.sessionstack.com/how-javascript-works/home)
 - [Frontend Interview handbook](https://github.com/yangshun/front-end-interview-handbook)
 - [ToDo MVC Examples](https://github.com/tastejs/todomvc/tree/master/examples)
+- [Sanchit's Frontend notes](https://docs.google.com/document/d/1ikSTpvptGrS8GXQmVE-XLV4_WvCDcPGIoyySUicYv3I/edit)
 - [Solid Principles in JS Summary]()
 
  
