@@ -28,6 +28,14 @@
 
 ### DOM APIs
 
+### React Native
+
+### App lifecycle
+
+### Recycler View
+
+### Push Notifications
+
 # Reference Links 
 
 - [How Browsers Works](https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)
