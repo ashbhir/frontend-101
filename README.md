@@ -1,38 +1,40 @@
 # Frontend 101
 
-### Javascript
+### Core Language -> Javascript, Kotlin, HTML/ CSS/ DOM JS
 
-### CSS
+### Styling -> CSS, Flexbox, Android Layouts
 
-### Javascript runtime (V8)
+### Compile -> Javascript runtime (V8), Web assembly, Hermes
 
-### Frontend frameworks (React/ Redux)
+### Frameworks -> React, Redux, Android, React Native & Bridging
 
-### Frontend bundling (Webpack)
+### Bundling -> Webpack, Gradle
+
+### Navigation -> React Router, React Navigation, App Navigation 
+
+### Local Storage -> Room DB, Cookies vs Local Storage
+
+### Code Architecture -> MVC, MVVM, MVP, Redux Architecture
+
+### Code patterns -> Solid Patterns
 
 ### Website page load
 
-### Browser rendering
+### App Lifecycle
 
-### Website performance
+### Performance -> Pixel rendering on browsers/ apps, performance measuring
 
-### Service Workers/ PWA
+### Offline experience -> Service Workers/ PWA
 
-### Website Security
+### Security
 
-### Browser Networking
+### Networking internals
 
-### Web workers
+### Asynchronous -> Generators, Promises, Coroutines 
 
-### Web assembly
+### Multi-threading -> Web workers, Loopers
 
-### DOM APIs
-
-### React Native
-
-### App lifecycle
-
-### Recycler View
+### Infinite Lists -> Recycler View, FlatList
 
 ### Push Notifications
 
