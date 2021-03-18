@@ -48,5 +48,6 @@
 - [Solid Principles in JS Summary]()
 - [JS Interview Questions](https://www.toptal.com/javascript/interview-questions)
 - [React Interview Questions](https://github.com/sudheerj/reactjs-interview-questions)
+- [Web Fundamentals](https://javascript.info/)
 
  
