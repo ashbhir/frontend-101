@@ -49,5 +49,8 @@
 - [JS Interview Questions](https://www.toptal.com/javascript/interview-questions)
 - [React Interview Questions](https://github.com/sudheerj/reactjs-interview-questions)
 - [Web Fundamentals](https://javascript.info/)
+- [33 JS Concepts](https://github.com/leonardomso/33-js-concepts)
+- [Clean Code JS](https://github.com/ryanmcdermott/clean-code-javascript)
+- [JS Questions](https://github.com/lydiahallie/javascript-questions)
 
  
