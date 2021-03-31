@@ -14,7 +14,7 @@
 
 ### Local Storage -> Room DB, Cookies vs Local Storage
 
-### Code Architecture -> MVC, MVVM, MVP, Redux Architecture
+### [Code Architecture -> MVC, MVVM, MVP, Redux Architecture](#Code-Architecture)
 
 ### [Design patterns -> Solid Principles](#Design-Patterns)
 
@@ -45,6 +45,51 @@
 - [33 JS Concepts](https://github.com/leonardomso/33-js-concepts)
 - [Tricky JS Questions](https://github.com/lydiahallie/javascript-questions)
 - [JS Fundamentals](https://javascript.info/)
+
+# Code Architecture
+
+## MVC vs MVP vs MVVM
+
+### MVC
+
+- Many to many relationship between View and Controllers
+- Views not aware of the controller or the model (good thing).
+- Input is passed on the controller which then executes the businness logic and modifies the view and the model.
+- No clear distinction as to who will do the model formatting for presenting it to the view. Everything dumped to controllers make it bulky.
+- Controllers are not reusable as they are coupled tightly with the View and the Model
+
+![MVC](https://user-images.githubusercontent.com/12800313/113200070-82efee80-9285-11eb-9147-ac0bf37e7d6e.png)
+
+### MVC in Android
+![MVC Android](https://user-images.githubusercontent.com/12800313/113200098-8b482980-9285-11eb-88ec-53ccf8d51ea0.png)
+
+### MVP
+
+- One to one relationship between View and Presenter
+- View holds reference of Presenter and notifies it on input change
+- Presenter is fully aware of the View using IView interface and calls its methods based on different actions
+- The interface/ contracts b/w View and Presenter becomes difficult to manage and is not reusable
+
+![MVP](https://user-images.githubusercontent.com/12800313/113200104-8e431a00-9285-11eb-93ab-c86d1b0c2dbc.png)
+
+### MVP in Android
+![MVP Android](https://user-images.githubusercontent.com/12800313/113200111-913e0a80-9285-11eb-9914-cbd8103f68ed.png)
+
+### MVVM
+
+- Views can have many View Models
+- View Models are not aware of the View
+- Views handle their own updation by observing on the ViewModel data
+- Little perfomance issues with so many data bindings
+
+![MVVM](https://user-images.githubusercontent.com/12800313/113200129-9602be80-9285-11eb-8b3f-1d47e964ff5e.png)
+
+### MVVM in Android
+![MVVM Android](https://user-images.githubusercontent.com/12800313/113200175-9f8c2680-9285-11eb-97fc-2737335b032a.png)
+
+### Summary
+
+![Comparison](https://user-images.githubusercontent.com/12800313/113200184-a31fad80-9285-11eb-89d3-0c72d46c534a.jpeg)
 
 # Design Patterns
 
