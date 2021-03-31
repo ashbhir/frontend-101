@@ -58,8 +58,6 @@
 - No clear distinction as to who will do the model formatting for presenting it to the view. Everything dumped to controllers make it bulky.
 - Controllers are not reusable as they are coupled tightly with the View and the Model
 
-![MVC](https://user-images.githubusercontent.com/12800313/113200070-82efee80-9285-11eb-9147-ac0bf37e7d6e.png)
-
 ### MVC in Android
 ![MVC Android](https://user-images.githubusercontent.com/12800313/113200098-8b482980-9285-11eb-88ec-53ccf8d51ea0.png)
 
@@ -70,8 +68,6 @@
 - Presenter is fully aware of the View using IView interface and calls its methods based on different actions
 - The interface/ contracts b/w View and Presenter becomes difficult to manage and is not reusable
 
-![MVP](https://user-images.githubusercontent.com/12800313/113200104-8e431a00-9285-11eb-93ab-c86d1b0c2dbc.png)
-
 ### MVP in Android
 ![MVP Android](https://user-images.githubusercontent.com/12800313/113200111-913e0a80-9285-11eb-9914-cbd8103f68ed.png)
 
@@ -81,8 +77,6 @@
 - View Models are not aware of the View
 - Views handle their own updation by observing on the ViewModel data
 - Little perfomance issues with so many data bindings
-
-![MVVM](https://user-images.githubusercontent.com/12800313/113200129-9602be80-9285-11eb-8b3f-1d47e964ff5e.png)
 
 ### MVVM in Android
 ![MVVM Android](https://user-images.githubusercontent.com/12800313/113200175-9f8c2680-9285-11eb-97fc-2737335b032a.png)
