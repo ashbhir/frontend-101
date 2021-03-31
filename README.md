@@ -183,7 +183,7 @@ Aggregations are a `has a` type of relationship. Class `Doctor` may or may not c
 
 ### Solid in JS
 
-[Solid Principles in JS](https://medium.com/@cramirez92/s-o-l-i-d-the-first-5-priciples-of-object-oriented-design-with-javascript-790f6ac9b9fa)
+- [Solid Principles in JS](https://medium.com/@cramirez92/s-o-l-i-d-the-first-5-priciples-of-object-oriented-design-with-javascript-790f6ac9b9fa)
 
 ## Clean Code
 
