@@ -1,6 +1,6 @@
 # Frontend 101
 
-### Core Language -> Javascript, Kotlin, HTML/ CSS/ DOM JS
+### [Core Languages -> Javascript, Kotlin, HTML/ CSS/ DOM JS](#Core-Languages)
 
 ### Styling -> CSS, Flexbox, Android Layouts
 
@@ -16,7 +16,7 @@
 
 ### Code Architecture -> MVC, MVVM, MVP, Redux Architecture
 
-### [Code patterns -> Solid Principles](#Solid-Principles)
+### [Design patterns -> Solid Principles](#Design-Patterns)
 
 ### Website page load
 
@@ -38,9 +38,18 @@
 
 ### Push Notifications
 
-# Solid Principles
+# Core Languages
 
-## Single Responsibility Principle
+## Javascript
+
+- [33 JS Concepts](https://github.com/leonardomso/33-js-concepts)
+- [Tricky JS Questions](https://github.com/lydiahallie/javascript-questions)
+
+# Design Patterns
+
+## Solid Principles
+
+### Single Responsibility Principle
 ```
 A class should have one and only one reason to change, meaning that a class should have only one job.
 ```
@@ -59,7 +68,7 @@ Employee class is handling responsibilities of calculating tax, outputing to fil
 
 We should rather make a separate class as `TaxCalculator`, `Logger`, `FileOutputter` etc.
 
-## Open-Closed Principle
+### Open-Closed Principle
 ```
 Objects or entities should be open for extension but closed for modification.
 ```
@@ -99,7 +108,7 @@ class Employee {
 }
 ```
 
-## Liskov Substitution Principle
+### Liskov Substitution Principle
 ```
 Every subclass or derived class should be substitutable for their base or parent class.
 ```
@@ -120,13 +129,13 @@ class Stack extends ArrayList<Integer> {
 ```
 Doesn't make sense Stack class to extend ArrayList as it will have to implement all methods of ArrayList and throw error. One can access any element of the stack which is not the desired behavior. We should favor composition here.
 
-## Interface Seggregation Principle
+### Interface Seggregation Principle
 ```
 A client should never be forced to implement an interface that it doesn’t use, or clients shouldn’t be forced to depend on methods they do not use.
 ```
 This simply means Single Responsible Principle for interfaces. `Flayable` interface shouldn't have a `flapWings()` method but rather make a new interface `Flappable`.
 
-## Dependency Inversion Principle
+### Dependency Inversion Principle
 ```
 Entities must depend on abstractions, not on concretions. It states that the high-level module must not depend on the low-level module, but they should depend on abstractions.
 ```
@@ -165,12 +174,16 @@ class Payment {
 
 IOC (Inversion of Control) frameworks like springboot help with managing dependencies.
 
-## Compostion and Inheritance
+### Compostion and Inheritance
 
 Both are generalisations that have a `has a` relation rather than `is a` relation in class inheritance. 
 
 Compostions are a `belong to` type of relationship. Class `Car` is composed of class `Engine`.
 Aggregations are a `has a` type of relationship. Class `Doctor` may or may not contain class `Patient`.
+
+### Clean Code
+
+- [Clean Code JS](https://github.com/ryanmcdermott/clean-code-javascript)
 
 # Reference Links 
 
@@ -183,8 +196,5 @@ Aggregations are a `has a` type of relationship. Class `Doctor` may or may not c
 - [JS Interview Questions](https://www.toptal.com/javascript/interview-questions)
 - [React Interview Questions](https://github.com/sudheerj/reactjs-interview-questions)
 - [Web Fundamentals](https://javascript.info/)
-- [33 JS Concepts](https://github.com/leonardomso/33-js-concepts)
-- [Clean Code JS](https://github.com/ryanmcdermott/clean-code-javascript)
-- [JS Questions](https://github.com/lydiahallie/javascript-questions)
 
  
