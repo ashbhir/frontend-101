@@ -18,7 +18,7 @@
 
 ### [Design patterns -> Solid Principles](#Design-Patterns)
 
-### [Website loading on browsers](#Website-loading-on-browsers)
+### [Website loading on browsers](#Website-loading-browsers)
 
 ### App Lifecycle
 
@@ -190,7 +190,7 @@ Aggregations are a `has a` type of relationship. Class `Doctor` may or may not c
 
 - [Clean Code JS](https://github.com/ryanmcdermott/clean-code-javascript)
 
-# Website loading on browsers
+# Website loading browsers
 
 - [How Browsers Works](https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)
 
