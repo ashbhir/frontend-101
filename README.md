@@ -18,7 +18,7 @@
 
 ### [Design patterns -> Solid Principles](#Design-Patterns)
 
-### Website page load
+### [Website loading on browsers](#Website-loading-on-browsers)
 
 ### App Lifecycle
 
@@ -44,6 +44,7 @@
 
 - [33 JS Concepts](https://github.com/leonardomso/33-js-concepts)
 - [Tricky JS Questions](https://github.com/lydiahallie/javascript-questions)
+- [JS Fundamentals](https://javascript.info/)
 
 # Design Patterns
 
@@ -189,14 +190,16 @@ Aggregations are a `has a` type of relationship. Class `Doctor` may or may not c
 
 - [Clean Code JS](https://github.com/ryanmcdermott/clean-code-javascript)
 
-# Reference Links 
+# Website loading on browsers
 
 - [How Browsers Works](https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)
-- [How JS Works](https://blog.sessionstack.com/how-javascript-works/home)
+
+# Reference Links 
+
+- [SessionStack How JS Works](https://blog.sessionstack.com/how-javascript-works/home)
 - [Frontend Interview handbook](https://github.com/yangshun/front-end-interview-handbook)
 - [ToDo MVC Examples](https://github.com/tastejs/todomvc/tree/master/examples)
 - [Sanchit's Frontend notes](https://docs.google.com/document/d/1ikSTpvptGrS8GXQmVE-XLV4_WvCDcPGIoyySUicYv3I/edit)
 - [React Interview Questions](https://github.com/sudheerj/reactjs-interview-questions)
-- [Web Fundamentals](https://javascript.info/)
 
  
