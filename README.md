@@ -181,7 +181,11 @@ Both are generalisations that have a `has a` relation rather than `is a` relatio
 Compostions are a `belong to` type of relationship. Class `Car` is composed of class `Engine`.
 Aggregations are a `has a` type of relationship. Class `Doctor` may or may not contain class `Patient`.
 
-### Clean Code
+### Solid in JS
+
+[Solid Principles in JS](https://medium.com/@cramirez92/s-o-l-i-d-the-first-5-priciples-of-object-oriented-design-with-javascript-790f6ac9b9fa)
+
+## Clean Code
 
 - [Clean Code JS](https://github.com/ryanmcdermott/clean-code-javascript)
 
@@ -192,8 +196,6 @@ Aggregations are a `has a` type of relationship. Class `Doctor` may or may not c
 - [Frontend Interview handbook](https://github.com/yangshun/front-end-interview-handbook)
 - [ToDo MVC Examples](https://github.com/tastejs/todomvc/tree/master/examples)
 - [Sanchit's Frontend notes](https://docs.google.com/document/d/1ikSTpvptGrS8GXQmVE-XLV4_WvCDcPGIoyySUicYv3I/edit)
-- [Solid Principles in JS Summary]()
-- [JS Interview Questions](https://www.toptal.com/javascript/interview-questions)
 - [React Interview Questions](https://github.com/sudheerj/reactjs-interview-questions)
 - [Web Fundamentals](https://javascript.info/)
 
