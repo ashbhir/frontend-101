@@ -38,6 +38,8 @@
 
 ### Push Notifications
 
+### Garbage Collection -> ARC, Mark & Sweep
+
 # Core Languages
 
 ## Javascript
