@@ -40,6 +40,8 @@
 
 ### Garbage Collection -> ARC, Mark & Sweep
 
+### Image Optimisations
+
 # Core Languages
 
 ## Javascript
@@ -87,141 +89,7 @@
 
 ![Comparison](https://user-images.githubusercontent.com/12800313/113200184-a31fad80-9285-11eb-89d3-0c72d46c534a.jpeg)
 
-# Design Patterns
-
-## Solid Principles
-
-### Single Responsibility Principle
-```
-A class should have one and only one reason to change, meaning that a class should have only one job.
-```
-
-```
-class Employee {
-  fun getTax() {
-    val tax = this.salary * 10/100;
-    FileReader f = new FileReader();
-    f.out(tax)
-    print(tax)
-  }
-}
-```
-Employee class is handling responsibilities of calculating tax, outputing to file and printing to console.
-
-We should rather make a separate class as `TaxCalculator`, `Logger`, `FileOutputter` etc.
-
-### Open-Closed Principle
-```
-Objects or entities should be open for extension but closed for modification.
-```
-```
-class Bird {
-  fun fly() {
-    if (this.type == 'flamingo') {
-      // do something
-    } else if (this.type == 'egret') {
-      // do something else
-    }
-  }
-}
-```
-Here, function fly and in effect class Bird will be modified on every addition of a type of bird. We should rather have separate bird classed inheriting Bird class.
-
-```
-class Flamingo extends Bird {
-  fun fly() {}
-}
-
-class Egret extends Bird {
-  fun fly() {}
-}
-```
-
-Also, for class `TaxCalculator` we can different types of Employees implement different TaxCalculator like `TaxCalculatorIntern`, `TaxCalculatorFullTime` or `TaxClaculatorCEO`.
-**Ques**: But how do we instantiate different TaxCalculator classes for different Employess ?
-**Ans**: We use Factory Pattern. 
-
-```
-class Employee {
-  fun calculateTax() {
-    val taxCalculator = TaxCalculator.create(this.type)
-    return taxCalculator.calculate()
-  }
-}
-```
-
-### Liskov Substitution Principle
-```
-Every subclass or derived class should be substitutable for their base or parent class.
-```
-```
-class Penguin extends Bird {
-  fun fly() {
-    // what to do ??
-  }
-}
-```
-Not all birds can fly. It doesn't make sense for Bird class to contain fly method if not all birds are flyable. Perhaps make an interface `Flyable` and we can only call bird.fly() on bird instances that implement `Flyable` interface.
-
-```
-class Stack extends ArrayList<Integer> {
-  fun push() {}
-  fun pop() {}
-}
-```
-Doesn't make sense Stack class to extend ArrayList as it will have to implement all methods of ArrayList and throw error. One can access any element of the stack which is not the desired behavior. We should favor composition here.
-
-### Interface Seggregation Principle
-```
-A client should never be forced to implement an interface that it doesn’t use, or clients shouldn’t be forced to depend on methods they do not use.
-```
-This simply means Single Responsible Principle for interfaces. `Flayable` interface shouldn't have a `flapWings()` method but rather make a new interface `Flappable`.
-
-### Dependency Inversion Principle
-```
-Entities must depend on abstractions, not on concretions. It states that the high-level module must not depend on the low-level module, but they should depend on abstractions.
-```
-```
-class ProductSQLRepo {
-  fun save() {}
-  fun get() {}
-}
-
-class Payment {
-  fun pay(productId: Int) {
-    val sqlRepo = new ProductSQLRepo(productId)
-    val product = sqlRepo.get()
-    payAmount(product.price)
-  }
-}
-```
-Here high-level class `Payment` is dependent on a low-level module `ProductSQLRepo` which is not correct for two reasons- If later, product fetching is changed to ProductMongoRepo, a lot of changes will be required + Payment should not be concerned with initialisation of the repo. 
-
-It is solved by following dependency injection and leaving reposibility of instantiating of repo on the caller.
-
-```
-abstract class ProductRepo {
-  fun save() {}
-  fun get() {}
-}
-
-class Payment {
-  fun pay(productId: Int, productRepo: ProductRepo) {
-    val product = productRepo.get()
-    payAmount(product.price)
-  }
-}
-```
-
-
-IOC (Inversion of Control) frameworks like springboot help with managing dependencies.
-
-### Compostion and Inheritance
-
-Both are generalisations that have a `has a` relation rather than `is a` relation in class inheritance. 
-
-Compostions are a `belong to` type of relationship. Class `Car` is composed of class `Engine`.
-Aggregations are a `has a` type of relationship. Class `Doctor` may or may not contain class `Patient`.
+# Design-Patterns
 
 ### Solid in JS
 
