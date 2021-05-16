@@ -30,7 +30,7 @@
 
 ### Networking internals
 
-### Asynchronous -> Generators, Promises, Coroutines 
+### [Asynchronous -> Generators, Promises, Coroutines](#Async Frontend)
 
 ### Multi-threading -> Web workers, Loopers
 
@@ -102,6 +102,25 @@
 # Website loading browsers
 
 - [How Browsers Works](https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)
+
+# Async Frontend
+
+## JS Promises 
+
+```
+let promise = new Promise(function(resolve, reject) {
+  // executor (the producing code, "singer")
+});
+```
+
+
+## JS Promises vs Async Await
+
+## Generators 
+
+## Android Multi-threading
+
+## Kotlin Coroutines
 
 # Reference Links 
 
