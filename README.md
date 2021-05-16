@@ -30,7 +30,7 @@
 
 ### Networking internals
 
-### [Asynchronous -> Generators, Promises, Coroutines, Multithreading, Event Loop](#Async Frontend)
+### [Asynchronous -> Generators, Promises, Coroutines Multithreading, Event Loop](#async-frontend)
 
 ### Infinite Lists -> Recycler View, FlatList
 
