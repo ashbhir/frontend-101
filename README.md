@@ -8,7 +8,7 @@
 
 ### Frameworks -> React, Redux, Android, React Native & Bridging
 
-### Bundling -> Webpack, Gradle
+### Bundling -> Module loading in JS, Webpack, Gradle
 
 ### Navigation -> React Router, React Navigation, App Navigation 
 
