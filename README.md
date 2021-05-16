@@ -30,9 +30,7 @@
 
 ### Networking internals
 
-### [Asynchronous -> Generators, Promises, Coroutines](#Async Frontend)
-
-### Multi-threading -> Web workers, Loopers
+### [Asynchronous -> Generators, Promises, Coroutines, Multithreading, Event Loop](#Async Frontend)
 
 ### Infinite Lists -> Recycler View, FlatList
 
@@ -107,13 +105,175 @@
 
 ## JS Promises 
 
-```
+```js
 let promise = new Promise(function(resolve, reject) {
   // executor (the producing code, "singer")
 });
 ```
+The function passed to new Promise is called the executor. When new Promise is created, the executor runs automatically
 
+When the executor obtains the result, be it soon or late, doesn’t matter, it should call one of these callbacks:
 
+- resolve(value) — if the job is finished successfully, with result value.
+- reject(error) — if an error has occurred, error is the error object.
+
+### Consumers: then, catch, finally
+
+```js
+promise
+.then(
+  function(result) { /* handle a successful result */ },
+  function(error) { /* handle an error, same as using it in catch */ }
+)
+.catch()
+.finally()
+```
+
+### Promise Chaining
+
+```js
+promise.then(f1).catch(f2);
+Versus:
+promise.then(f1, f2);
+```
+The difference b/w the two is that if an error happens in f1, then it is handled by .catch in first but not in second.
+In other words, .then passes results/errors to the next .then/catch. So in the first example, there’s a catch below, and in the second one there isn’t, so the error is unhandled.
+
+### Unhandled rejections
+
+What happens when an error is not handled? For instance, we forgot to append .catch to the end of the chain, like here:
+
+```js
+new Promise(function() {
+  noSuchFunction(); // Error here (no such function)
+})
+  .then(() => {
+    // successful promise handlers, one or more
+  }); // without .catch at the end!
+```
+The JavaScript engine tracks such rejections and generates a global error in that case.
+In the browser we can catch such errors using the event `unhandledrejection`.
+
+### Promise.allSettled
+
+Promise.all rejects as a whole if any promise rejects. That’s good for “all or nothing” cases, when we need all results successful to proceed.
+
+Promise.allSettled just waits for all promises to settle, regardless of the result. The resulting array has:
+
+```
+[
+  {status:"fulfilled", value:result} for successful responses,
+  {status:"rejected", reason:error} for errors.
+```
+Pollyfill:
+```js
+if (!Promise.allSettled) {
+  const rejectHandler = reason => ({ status: 'rejected', reason });
+
+  const resolveHandler = value => ({ status: 'fulfilled', value });
+
+  Promise.allSettled = function (promises) {
+    const convertedPromises = promises.map(p => Promise.resolve(p).then(resolveHandler, rejectHandler));
+    return Promise.all(convertedPromises);
+  };
+}
+```
+
+### Promisification
+
+Suppose we want to promisify a function which used to take callback:
+
+```js
+function loadScript(src, callback) {
+  let script = document.createElement('script');
+  script.src = src;
+
+  script.onload = () => callback(null, script);
+  script.onerror = () => callback(new Error(`Script load error for ${src}`));
+
+  document.head.append(script);
+}
+
+// usage:
+// loadScript('path/script.js', (err, script) => {...})
+```
+
+Here's how we can make a promisify any function which takes a callback argument:
+
+```js
+function promisify(f) {
+  return function (...args) { // return a wrapper-function (*)
+    return new Promise((resolve, reject) => {
+      function callback(err, result) { // our custom callback for f (**)
+        if (err) {
+          reject(err);
+        } else {
+          resolve(result);
+        }
+      }
+
+      args.push(callback); // append our custom callback to the end of f arguments
+
+      f.call(this, ...args); // call the original function
+    });
+  };
+}
+
+// usage:
+let loadScriptPromise = promisify(loadScript);
+loadScriptPromise(...).then(...);
+```
+
+Promise handling is always asynchronous, as all promise actions pass through the internal “promise jobs” queue, also called “microtask queue” (V8 term).
+
+## Event Loops 
+
+When a promise is ready, its .then/catch/finally handlers are put into the microtask queue; they are not executed yet. When the JavaScript engine becomes free from the current code, it takes a task from the queue and executes it.
+
+The event loop concept is very simple. There’s an endless loop, where the JavaScript engine waits for tasks, executes them and then sleeps, waiting for more tasks.
+
+The general algorithm of the engine:
+
+While there are tasks:
+- execute them, starting with the oldest task.
+- Sleep until a task appears, then go to 1.
+
+Examples of tasks:
+
+- When an external script \<script src="..."\> loads, the task is to execute it.
+- When a user moves their mouse, the task is to dispatch mousemove event and execute handlers.
+- When the time is due for a scheduled setTimeout, the task is to run its callback.
+
+### Macrotasks and Microtasks
+
+Microtasks come solely from our code. They are usually created by promises: an execution of .then/catch/finally handler becomes a microtask. Microtasks are used “under the cover” of await as well, as it’s another form of promise handling.
+
+```
+Immediately after every macrotask, the engine executes all tasks from microtask queue, prior to running any other macrotasks or rendering or anything else.
+```
+
+- Dequeue and run the oldest task from the macrotask queue (e.g. “script”).
+- Execute all microtasks:
+  - While the microtask queue is not empty:
+  - Dequeue and run the oldest microtask.
+- Render changes if any.
+- If the macrotask queue is empty, wait till a macrotask appears.
+- Go to step 1.
+
+To schedule a new macrotask:
+
+- Use zero delayed setTimeout(f).
+- That may be used to split a big calculation-heavy task into pieces, for the browser to be able to react to user events and show progress between them.
+
+- Also, used in event handlers to schedule an action after the event is fully handled (bubbling done).
+
+- To schedule a new microtask
+  - Use queueMicrotask(f).
+
+- Also promise handlers go through the microtask queue.
+- There’s no UI or network event handling between microtasks: they run immediately one after another.
+
+- So one may want to queueMicrotask to execute a function asynchronously, but within the environment state.
 ## JS Promises vs Async Await
 
 ## Generators 
